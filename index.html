@@ -81,8 +81,16 @@
   <div class="nav-divider" aria-hidden="true"></div>
 
   <button class="nav-step" id="nav-6" onclick="navClick(6)"
-          aria-label="Step 6: Advance Care Plan" disabled>
+          aria-label="Step 6: Sophie and Claire" disabled>
     <div class="nav-step-num" aria-hidden="true">6</div>
+    <span class="nav-step-label">Sophie &amp; Claire</span>
+  </button>
+
+  <div class="nav-divider" aria-hidden="true"></div>
+
+  <button class="nav-step" id="nav-7" onclick="navClick(7)"
+          aria-label="Step 7: Advance Care Plan" disabled>
+    <div class="nav-step-num" aria-hidden="true">7</div>
     <span class="nav-step-label">Care Plan</span>
   </button>
 </nav>
@@ -620,182 +628,384 @@
 
 
 <!-- ══════════════════════════════════════════════════════
-     PAGE 6 — ADVANCE CARE PLAN ACTIVITY
+     PAGE 6 — SOPHIE & CLAIRE
 ══════════════════════════════════════════════════════ -->
-<section class="page" id="page-6" aria-label="Advance Care Plan activity">
-  <div class="acp-wrap">
+<section class="page" id="page-6" aria-label="Sophie and Claire — family bereavement context">
+  <div class="sophie-wrap">
 
-    <p class="pillars-page-eyebrow">Care Planning Activity</p>
-    <h2 class="pillars-page-title">Helen's Advance Care Plan</h2>
-    <p class="pillars-page-sub" style="max-width:680px;">
-      Using everything you have learned about Helen, complete the key sections of her Advance Care Plan.
-      You can open Helen's notes at any time for reference.
-    </p>
+    <div class="sophie-layout">
 
-    <button class="btn btn-notes" onclick="openAcpModal()" aria-label="View Helen's notes">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-      View Helen's Notes
-    </button>
-
-    <div class="acp-form" role="form" aria-label="Advance Care Plan form">
-
-      <!-- SECTION 1: Personal Details -->
-      <div class="acp-section">
-        <div class="acp-section-header">
-          <div class="acp-section-num">1</div>
-          <h3 class="acp-section-title">Personal Details</h3>
+      <!-- Left: scene image -->
+      <div class="sophie-left">
+        <div class="sophie-image-frame" role="img" aria-label="Sophie in her bedroom — a photograph of her mother Claire on the windowsill">
+          <img src="images/sophie.png"
+               alt="Sophie sitting quietly in her bedroom. A photograph of Claire is visible on the windowsill."
+               onerror="this.style.display='none'; this.parentElement.classList.add('sophie-img-fallback')">
+          <div class="sophie-img-placeholder" aria-hidden="true">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>sophie.png</span>
+          </div>
         </div>
-        <div class="acp-fields">
-          <div class="acp-field-row">
-            <div class="acp-field">
-              <label class="acp-label" for="acp-firstname">First name</label>
-              <input class="acp-input" id="acp-firstname" type="text" placeholder="e.g. Helen">
-            </div>
-            <div class="acp-field">
-              <label class="acp-label" for="acp-surname">Surname</label>
-              <input class="acp-input" id="acp-surname" type="text" placeholder="e.g. Marsh">
-            </div>
-            <div class="acp-field">
-              <label class="acp-label" for="acp-preferred">Preferred name</label>
-              <input class="acp-input" id="acp-preferred" type="text" placeholder="What does she like to be called?">
+
+        <!-- Claire memorial card -->
+        <div class="claire-card" role="note" aria-label="Claire Marsh memorial note">
+          <div class="claire-card-header">
+            <div class="claire-initial" aria-hidden="true">C</div>
+            <div>
+              <div class="claire-name">Claire Marsh</div>
+              <div class="claire-dates">1982 – 2022</div>
             </div>
           </div>
-          <div class="acp-field-row">
-            <div class="acp-field">
-              <label class="acp-label" for="acp-dob">Date of birth</label>
-              <input class="acp-input" id="acp-dob" type="text" placeholder="e.g. 14 March 1951">
-            </div>
-            <div class="acp-field">
-              <label class="acp-label" for="acp-faith">Religion / spiritual faith</label>
-              <input class="acp-input" id="acp-faith" type="text" placeholder="e.g. Christian">
-            </div>
-            <div class="acp-field">
-              <label class="acp-label" for="acp-partner">Partner / husband / wife</label>
-              <input class="acp-input" id="acp-partner" type="text" placeholder="Name of partner">
-            </div>
-          </div>
-          <div class="acp-field-row">
-            <div class="acp-field acp-field-wide">
-              <label class="acp-label" for="acp-liveswith">Lives with</label>
-              <input class="acp-input" id="acp-liveswith" type="text" placeholder="Who does Helen live with?">
-            </div>
-            <div class="acp-field acp-field-wide">
-              <label class="acp-label" for="acp-nhs">NHS number</label>
-              <input class="acp-input" id="acp-nhs" type="text" placeholder="Leave blank if unknown">
-            </div>
-          </div>
+          <p class="claire-note">
+            Beloved daughter of Helen and Simon. Mother to Sophie.
+            Died aged 39 following a diagnosis of ovarian cancer —
+            the same illness now facing her mother.
+          </p>
         </div>
       </div>
 
-      <!-- SECTION 2: Family Members & Carers -->
-      <div class="acp-section">
-        <div class="acp-section-header">
-          <div class="acp-section-num">2</div>
-          <h3 class="acp-section-title">Family Members &amp; Informal Carers</h3>
-        </div>
-        <div class="acp-fields">
-          <div class="acp-table-row acp-table-head">
-            <span>Name</span><span>Relationship</span><span>Phone</span><span>Next of Kin?</span>
-          </div>
-          <div class="acp-table-row">
-            <input class="acp-input" type="text" placeholder="Name" aria-label="Family member 1 name">
-            <input class="acp-input" type="text" placeholder="Relationship" aria-label="Relationship">
-            <input class="acp-input" type="text" placeholder="Phone number" aria-label="Phone">
-            <select class="acp-input" aria-label="Next of kin">
-              <option value="">—</option><option>Yes</option><option>No</option>
-            </select>
-          </div>
-          <div class="acp-table-row">
-            <input class="acp-input" type="text" placeholder="Name" aria-label="Family member 2 name">
-            <input class="acp-input" type="text" placeholder="Relationship" aria-label="Relationship">
-            <input class="acp-input" type="text" placeholder="Phone number" aria-label="Phone">
-            <select class="acp-input" aria-label="Next of kin">
-              <option value="">—</option><option>Yes</option><option>No</option>
-            </select>
-          </div>
-        </div>
-      </div>
+      <!-- Right: narrative + reflection -->
+      <div class="sophie-right">
 
-      <!-- SECTION 3: Care Preferences -->
-      <div class="acp-section">
-        <div class="acp-section-header">
-          <div class="acp-section-num">3</div>
-          <h3 class="acp-section-title">Future Care Preferences</h3>
-        </div>
-        <div class="acp-fields">
-          <div class="acp-field">
-            <label class="acp-label" for="acp-placecare">Preferred place of care</label>
-            <input class="acp-input" id="acp-placecare" type="text" placeholder="e.g. own home, hospice, care home">
-          </div>
-          <div class="acp-field">
-            <label class="acp-label" for="acp-placedeath">Preferred place of death</label>
-            <input class="acp-input" id="acp-placedeath" type="text" placeholder="e.g. own home, hospice">
-          </div>
-          <div class="acp-field">
-            <label class="acp-label" for="acp-notwant">What Helen does NOT want to happen</label>
-            <textarea class="acp-input acp-textarea" id="acp-notwant" rows="2" placeholder="e.g. does not want to die in hospital"></textarea>
-          </div>
-          <div class="acp-field">
-            <label class="acp-label" for="acp-familycomments">Family / carer comments</label>
-            <textarea class="acp-input acp-textarea" id="acp-familycomments" rows="2" placeholder="What has been discussed with the family?"></textarea>
-          </div>
-        </div>
-      </div>
+        <div class="intro-eyebrow" style="margin-bottom:14px;">Family Context</div>
+        <h2 class="sophie-heading">Sophie's Story</h2>
 
-      <!-- SECTION 4: What Matters -->
-      <div class="acp-section">
-        <div class="acp-section-header">
-          <div class="acp-section-num">4</div>
-          <h3 class="acp-section-title">Who and What is Important to Helen</h3>
-        </div>
-        <div class="acp-fields">
-          <div class="acp-field">
-            <label class="acp-label" for="acp-people">People (and pets) important to Helen</label>
-            <textarea class="acp-input acp-textarea" id="acp-people" rows="2" placeholder="Who matters most to her?"></textarea>
-          </div>
-          <div class="acp-field">
-            <label class="acp-label" for="acp-places">Places or things important to Helen</label>
-            <textarea class="acp-input acp-textarea" id="acp-places" rows="2" placeholder="e.g. her home, faith, particular belongings"></textarea>
-          </div>
-          <div class="acp-field">
-            <label class="acp-label" for="acp-wayoflife">The way she lives her life that is important to her</label>
-            <textarea class="acp-input acp-textarea" id="acp-wayoflife" rows="2" placeholder="e.g. faith, dignity, privacy, daily routines"></textarea>
-          </div>
-        </div>
-      </div>
+        <p class="sophie-body">
+          Sophie is 14 years old. Three years ago, she watched her mother Claire die of ovarian cancer.
+          She was 11. She never really spoke about it — and nobody pushed her to.
+        </p>
+        <p class="sophie-body">
+          Now her grandmother Helen is facing the same illness. The same breathlessness. The same
+          oxygen tank in the corner. Sophie recognises all of it — and it terrifies her.
+        </p>
+        <p class="sophie-body">
+          Her bedroom door stays shut. She has stopped eating with the family. Her teachers have
+          noticed she is withdrawing at school. Simon is too exhausted to know how to reach her,
+          and Helen is too worried about being a burden to ask.
+        </p>
 
-      <!-- SECTION 5: Things in Place -->
-      <div class="acp-section">
-        <div class="acp-section-header">
-          <div class="acp-section-num">5</div>
-          <h3 class="acp-section-title">Things Helen Has Put in Place</h3>
+        <div class="sophie-quote" role="blockquote">
+          <div class="sophie-quote-mark" aria-hidden="true">"</div>
+          <p>She won't talk to me. I don't know if she's grieving Claire all over again,
+          or if she's already grieving me. Maybe both.</p>
+          <div class="sophie-quote-attr">— Helen, speaking to her community nurse</div>
         </div>
-        <div class="acp-checklist">
-          <label class="acp-check-item"><input type="checkbox"> <span>Do Not Attempt CPR (DNACPR)</span></label>
-          <label class="acp-check-item"><input type="checkbox"> <span>Carer Emergency Plan (CERS)</span></label>
-          <label class="acp-check-item"><input type="checkbox"> <span>Lasting Power of Attorney</span></label>
-          <label class="acp-check-item"><input type="checkbox"> <span>Advance Care Plan on file</span></label>
-          <label class="acp-check-item"><input type="checkbox"> <span>ReSPECT form</span></label>
-          <label class="acp-check-item"><input type="checkbox"> <span>Medications documented</span></label>
-          <label class="acp-check-item"><input type="checkbox"> <span>Will in place</span></label>
-          <label class="acp-check-item"><input type="checkbox"> <span>Funeral preferences recorded</span></label>
+
+        <!-- Reflection prompts -->
+        <div class="sophie-reflection" role="region" aria-label="Reflective prompts">
+          <div class="sophie-reflection-title">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Consider as you plan Helen's care
+          </div>
+          <ul class="sophie-prompts">
+            <li>Sophie is experiencing <strong>anticipatory grief</strong> — grief for a loss that hasn't happened yet, layered on top of unresolved grief for Claire.</li>
+            <li>Under the <strong>Family &amp; Carer pillar</strong>, Sophie is a child in the home who requires specific support — a referral to youth bereavement services should be recorded in the care plan.</li>
+            <li>Helen's care preferences must account for <strong>Sophie's presence</strong> — where she dies, and how, will form part of Sophie's memory of her.</li>
+            <li>The <strong>Psychological &amp; Spiritual pillar</strong> applies to the whole family — not just Helen.</li>
+          </ul>
         </div>
-      </div>
 
-    </div><!-- /acp-form -->
+        <div style="display:flex; gap:16px; flex-wrap:wrap; margin-top:32px;">
+          <button class="btn btn-secondary" onclick="goToPage(5)"
+                  style="font-size:0.82rem; padding:10px 18px;"
+                  aria-label="Back to Four Pillars">
+            <span aria-hidden="true">←</span> Back to Four Pillars
+          </button>
+          <button class="btn btn-primary" onclick="goToPage(7)"
+                  aria-label="Continue to Advance Care Plan">
+            Continue to Care Plan <span aria-hidden="true">→</span>
+          </button>
+        </div>
 
-    <div class="acp-form-footer">
-      <p class="acp-footer-note">This is a reflective exercise. Your responses are not saved or submitted.</p>
-      <div style="display:flex; gap:16px; flex-wrap:wrap; align-items:center;">
-        <button class="btn btn-secondary" onclick="goToPage(5)" aria-label="Back to Four Pillars">
-          <span aria-hidden="true">←</span> Back to Four Pillars
-        </button>
-        <button class="btn btn-primary" onclick="goToPage(6)" style="background:var(--yellow); color:var(--navy);" aria-label="Module complete">
-          Complete Module ✓
-        </button>
       </div>
     </div>
 
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════
+     PAGE 7 — ADVANCE CARE PLAN ACTIVITY
+══════════════════════════════════════════════════════ -->
+<section class="page" id="page-7" aria-label="Advance Care Plan activity">
+  <div class="acp-page-layout">
+
+    <!-- ── STICKY SIDEBAR ── -->
+    <aside class="acp-sidebar" aria-label="Helen's notes — reference panel">
+      <div class="acp-sidebar-header">
+        <span aria-hidden="true">📋</span>
+        <span>Helen's Notes</span>
+      </div>
+      <div class="acp-sidebar-body">
+
+        <div class="acp-sidebar-card">
+          <div class="acp-sidebar-label">Personal</div>
+          <p><strong>Helen Marsh</strong>, born 14 March 1951 (75). Lives with husband <strong>Simon (68)</strong> and granddaughter <strong>Sophie (14)</strong>. Faith: <strong>Christian</strong>.</p>
+        </div>
+
+        <div class="acp-sidebar-card">
+          <div class="acp-sidebar-label">Clinical</div>
+          <p>Stage 4 ovarian cancer, pulmonary metastases. O₂ 2L/min. Prognosis: weeks–months. DNR in place.</p>
+        </div>
+
+        <div class="acp-sidebar-card">
+          <div class="acp-sidebar-label">What Matters to Helen</div>
+          <p>Dignity &amp; privacy. Does not want to be a burden. Faith is her main source of peace. Wants clinical discussions in her presence only.</p>
+        </div>
+
+        <div class="acp-sidebar-card">
+          <div class="acp-sidebar-label">Care Preferences</div>
+          <p>Strong wish to <strong>remain at home</strong>. Does not want to die in hospital. Would consider the hospice only if home care becomes unmanageable.</p>
+        </div>
+
+        <div class="acp-sidebar-card">
+          <div class="acp-sidebar-label">Family Context</div>
+          <p>Simon: carer strain, night shifts, financial pressure. Sophie (14): anticipatory grief, also bereaved — her mother <strong>Claire</strong> died of ovarian cancer in 2022. Refer to youth bereavement services.</p>
+        </div>
+
+        <div class="acp-sidebar-card">
+          <div class="acp-sidebar-label">Documents</div>
+          <p>DNR confirmed. No LPA yet. No formal ACP. ReSPECT form not completed. Medications listed.</p>
+        </div>
+
+      </div>
+    </aside>
+
+    <!-- ── MAIN FORM COLUMN ── -->
+    <div class="acp-main">
+
+      <p class="pillars-page-eyebrow">Care Planning Activity</p>
+      <h2 class="pillars-page-title" style="text-align:left;">Helen's Advance Care Plan</h2>
+      <p class="pillars-page-sub" style="text-align:left; max-width:100%; margin-bottom:8px;">
+        Using everything you have learned about Helen, complete the sections below.
+        Fields will highlight <span style="color:#6ee7b7; font-weight:600;">green</span> when correct
+        and <span style="color:#f87171; font-weight:600;">red</span> if a key detail is missing or wrong.
+        Helen's notes are pinned to the left for reference.
+      </p>
+
+      <div class="acp-form" role="form" aria-label="Advance Care Plan form">
+
+        <!-- SECTION 1: Personal Details -->
+        <div class="acp-section">
+          <div class="acp-section-header">
+            <div class="acp-section-num">1</div>
+            <h3 class="acp-section-title">Personal Details</h3>
+          </div>
+          <div class="acp-fields">
+            <div class="acp-field-row">
+              <div class="acp-field">
+                <label class="acp-label" for="acp-firstname">First name</label>
+                <input class="acp-input acp-validate" id="acp-firstname" type="text"
+                  placeholder="First name"
+                  data-answer="helen" data-match="contains">
+              </div>
+              <div class="acp-field">
+                <label class="acp-label" for="acp-surname">Surname</label>
+                <input class="acp-input acp-validate" id="acp-surname" type="text"
+                  placeholder="Surname"
+                  data-answer="marsh" data-match="contains">
+              </div>
+              <div class="acp-field">
+                <label class="acp-label" for="acp-preferred">Preferred name</label>
+                <input class="acp-input acp-validate" id="acp-preferred" type="text"
+                  placeholder="What she likes to be called"
+                  data-answer="helen" data-match="contains">
+              </div>
+            </div>
+            <div class="acp-field-row">
+              <div class="acp-field">
+                <label class="acp-label" for="acp-dob">Date of birth</label>
+                <input class="acp-input acp-validate" id="acp-dob" type="text"
+                  placeholder="e.g. 14 March 1951"
+                  data-answer="1951" data-match="contains">
+              </div>
+              <div class="acp-field">
+                <label class="acp-label" for="acp-faith">Religion / spiritual faith</label>
+                <input class="acp-input acp-validate" id="acp-faith" type="text"
+                  placeholder="e.g. Christian"
+                  data-answer="christian" data-match="contains">
+              </div>
+              <div class="acp-field">
+                <label class="acp-label" for="acp-partner">Partner / husband / wife</label>
+                <input class="acp-input acp-validate" id="acp-partner" type="text"
+                  placeholder="Name of partner"
+                  data-answer="simon" data-match="contains">
+              </div>
+            </div>
+            <div class="acp-field-row">
+              <div class="acp-field" style="grid-column:span 2">
+                <label class="acp-label" for="acp-liveswith">Lives with</label>
+                <input class="acp-input acp-validate" id="acp-liveswith" type="text"
+                  placeholder="Who does Helen live with?"
+                  data-answer="simon" data-match="contains">
+              </div>
+              <div class="acp-field">
+                <label class="acp-label" for="acp-nhs">NHS number</label>
+                <input class="acp-input" id="acp-nhs" type="text"
+                  placeholder="Leave blank if unknown">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 2: Family Members -->
+        <div class="acp-section">
+          <div class="acp-section-header">
+            <div class="acp-section-num">2</div>
+            <h3 class="acp-section-title">Family Members &amp; Informal Carers</h3>
+          </div>
+          <div class="acp-fields">
+            <div class="acp-table-row acp-table-head">
+              <span>Name</span><span>Relationship</span><span>Role / notes</span><span>Next of Kin?</span>
+            </div>
+            <div class="acp-table-row">
+              <input class="acp-input acp-validate" type="text" placeholder="Name"
+                aria-label="Family member 1 name" data-answer="simon" data-match="contains">
+              <input class="acp-input acp-validate" type="text" placeholder="Relationship"
+                aria-label="Relationship" data-answer="husband" data-match="contains">
+              <input class="acp-input acp-validate" type="text" placeholder="e.g. primary carer"
+                aria-label="Role" data-answer="carer" data-match="contains">
+              <select class="acp-input acp-validate-select" aria-label="Next of kin"
+                data-answer="yes">
+                <option value="">—</option><option value="yes">Yes</option><option value="no">No</option>
+              </select>
+            </div>
+            <div class="acp-table-row">
+              <input class="acp-input acp-validate" type="text" placeholder="Name"
+                aria-label="Family member 2 name" data-answer="sophie" data-match="contains">
+              <input class="acp-input acp-validate" type="text" placeholder="Relationship"
+                aria-label="Relationship" data-answer="granddaughter" data-match="contains">
+              <input class="acp-input" type="text" placeholder="e.g. youth bereavement referral needed"
+                aria-label="Notes">
+              <select class="acp-input" aria-label="Next of kin">
+                <option value="">—</option><option>Yes</option><option>No</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 3: Care Preferences -->
+        <div class="acp-section">
+          <div class="acp-section-header">
+            <div class="acp-section-num">3</div>
+            <h3 class="acp-section-title">Future Care Preferences</h3>
+          </div>
+          <div class="acp-fields">
+            <div class="acp-field">
+              <label class="acp-label" for="acp-placecare">Preferred place of care</label>
+              <input class="acp-input acp-validate" id="acp-placecare" type="text"
+                placeholder="e.g. own home, hospice, care home"
+                data-answer="home" data-match="contains">
+            </div>
+            <div class="acp-field">
+              <label class="acp-label" for="acp-placedeath">Preferred place of death (first choice)</label>
+              <input class="acp-input acp-validate" id="acp-placedeath" type="text"
+                placeholder="e.g. own home"
+                data-answer="home" data-match="contains">
+            </div>
+            <div class="acp-field">
+              <label class="acp-label" for="acp-placedeath2">Preferred place of death (if first not possible)</label>
+              <input class="acp-input acp-validate" id="acp-placedeath2" type="text"
+                placeholder="e.g. hospice"
+                data-answer="hospice" data-match="contains">
+            </div>
+            <div class="acp-field">
+              <label class="acp-label" for="acp-notwant">What Helen does NOT want to happen</label>
+              <textarea class="acp-input acp-textarea acp-validate" id="acp-notwant" rows="2"
+                placeholder="e.g. does not want to die in hospital, does not want to feel like a burden"
+                data-answer="hospital" data-match="contains"></textarea>
+            </div>
+            <div class="acp-field">
+              <label class="acp-label" for="acp-familycomments">Family / carer comments</label>
+              <textarea class="acp-input acp-textarea" id="acp-familycomments" rows="2"
+                placeholder="What has been discussed with Simon? What about Sophie?"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 4: What Matters -->
+        <div class="acp-section">
+          <div class="acp-section-header">
+            <div class="acp-section-num">4</div>
+            <h3 class="acp-section-title">Who and What is Important to Helen</h3>
+          </div>
+          <div class="acp-fields">
+            <div class="acp-field">
+              <label class="acp-label" for="acp-people">People (and pets) important to Helen</label>
+              <textarea class="acp-input acp-textarea acp-validate" id="acp-people" rows="2"
+                placeholder="Who matters most to her?"
+                data-answer="simon|sophie|family" data-match="contains-any"></textarea>
+            </div>
+            <div class="acp-field">
+              <label class="acp-label" for="acp-places">Places or things important to Helen</label>
+              <textarea class="acp-input acp-textarea acp-validate" id="acp-places" rows="2"
+                placeholder="e.g. her home, faith, particular belongings"
+                data-answer="home|faith|church|prayer" data-match="contains-any"></textarea>
+            </div>
+            <div class="acp-field">
+              <label class="acp-label" for="acp-wayoflife">The way she lives her life that is important to her</label>
+              <textarea class="acp-input acp-textarea acp-validate" id="acp-wayoflife" rows="2"
+                placeholder="e.g. faith, dignity, privacy, daily routines"
+                data-answer="dignity|faith|privacy" data-match="contains-any"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 5: Things in Place -->
+        <div class="acp-section">
+          <div class="acp-section-header">
+            <div class="acp-section-num">5</div>
+            <h3 class="acp-section-title">Things Helen Has Put in Place</h3>
+          </div>
+          <div class="acp-checklist">
+            <label class="acp-check-item acp-check-correct">
+              <input type="checkbox" id="chk-dnr"> <span>Do Not Attempt CPR (DNACPR)</span>
+              <span class="acp-check-hint">✓ Confirmed in notes</span>
+            </label>
+            <label class="acp-check-item">
+              <input type="checkbox"> <span>Carer Emergency Plan (CERS)</span>
+            </label>
+            <label class="acp-check-item acp-check-pending">
+              <input type="checkbox" id="chk-lpa"> <span>Lasting Power of Attorney</span>
+              <span class="acp-check-hint">⚠ Not yet in place — discuss</span>
+            </label>
+            <label class="acp-check-item">
+              <input type="checkbox"> <span>Advance Care Plan on file</span>
+            </label>
+            <label class="acp-check-item acp-check-pending">
+              <input type="checkbox" id="chk-respect"> <span>ReSPECT form</span>
+              <span class="acp-check-hint">⚠ Not yet completed</span>
+            </label>
+            <label class="acp-check-item acp-check-correct">
+              <input type="checkbox" id="chk-meds"> <span>Medications documented</span>
+              <span class="acp-check-hint">✓ Attached to care record</span>
+            </label>
+            <label class="acp-check-item">
+              <input type="checkbox"> <span>Will in place</span>
+            </label>
+            <label class="acp-check-item">
+              <input type="checkbox"> <span>Funeral preferences recorded</span>
+            </label>
+          </div>
+        </div>
+
+      </div><!-- /acp-form -->
+
+      <div class="acp-form-footer">
+        <p class="acp-footer-note">Fields highlighted green contain a correct key detail. Red fields need attention before the plan is complete.</p>
+        <div style="display:flex; gap:16px; flex-wrap:wrap; align-items:center;">
+          <button class="btn btn-secondary" onclick="goToPage(6)" aria-label="Back to Sophie and Claire">
+            <span aria-hidden="true">←</span> Back
+          </button>
+          <button class="btn btn-primary" onclick="printAcp()"
+                  style="background:var(--yellow); color:var(--navy);"
+                  aria-label="Print and save care plan">
+            🖨 Print &amp; Save
+          </button>
+        </div>
+      </div>
+
+    </div><!-- /acp-main -->
   </div>
 </section>
 
