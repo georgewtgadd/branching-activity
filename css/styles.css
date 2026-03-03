@@ -1286,68 +1286,35 @@ option { background: #1a2e52; color: white; }
 .sophie-prompts li strong { color: var(--white); }
 
 
-/* ══════════════════════════════════════════════════════
-   PAGE 7 — ACP: SIDEBAR LAYOUT
-══════════════════════════════════════════════════════ */
+/* ── PAGE 7 — ACP ───────────────────────────────────── */
 #page-7 {
   background: linear-gradient(160deg, var(--navy-dark) 0%, #1a2e52 100%);
-  display: none; align-items: stretch;
+  display: none;
 }
-#page-7.active { display: flex; }
+#page-7.active { display: block; }
 
-.acp-page-layout {
-  display: grid;
-  grid-template-columns: 260px 1fr;
-  min-height: 100vh;
-  width: 100%;
+/* Floating notes button */
+.acp-float-btn {
+  position: fixed;
+  bottom: 28px; right: 28px; z-index: 200;
+  display: none;
+  align-items: center; gap: 10px;
+  padding: 13px 22px;
+  background: var(--blue);
+  border: none; border-radius: 50px;
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif; font-size: 0.86rem; font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 24px rgba(1,151,222,0.45);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
 }
-
-/* Sticky sidebar */
-.acp-sidebar {
-  position: sticky; top: 0; height: 100vh;
-  overflow-y: auto; overflow-x: hidden;
-  background: rgba(0,0,0,0.25);
-  border-right: 1px solid rgba(255,255,255,0.07);
-  display: flex; flex-direction: column;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255,255,255,0.1) transparent;
+.acp-float-btn:hover {
+  background: #0181be;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(1,151,222,0.55);
 }
-.acp-sidebar::-webkit-scrollbar { width: 4px; }
-.acp-sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 2px; }
-
-.acp-sidebar-header {
-  display: flex; align-items: center; gap: 10px;
-  padding: 18px 16px 14px;
-  font-family: 'Merriweather', serif; font-size: 0.85rem;
-  font-weight: 700; color: var(--white);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  background: rgba(1,151,222,0.1);
-  position: sticky; top: 0; z-index: 2;
-}
-.acp-sidebar-body {
-  padding: 14px 14px 24px;
-  display: flex; flex-direction: column; gap: 10px;
-}
-.acp-sidebar-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.07);
-  border-radius: 8px; padding: 11px 13px;
-}
-.acp-sidebar-label {
-  font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em;
-  text-transform: uppercase; color: #7dd3fc; margin-bottom: 6px;
-}
-.acp-sidebar-card p {
-  font-size: 0.78rem; color: var(--text-muted); line-height: 1.65; margin: 0;
-}
-
-/* Main form column */
-.acp-main {
-  padding: 40px 44px 60px;
-  display: flex; flex-direction: column;
-  overflow-y: auto;
-}
-
+.acp-float-btn:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
+body.acp-notes-visible .acp-float-btn { display: flex; }
 
 /* ── ACP VALIDATION COLOURS ─────────────────────────── */
 .acp-input.acp-correct {
@@ -1374,7 +1341,7 @@ option { background: #1a2e52; color: white; }
 ══════════════════════════════════════════════════════ */
 @media print {
   header, nav, .module-progress-bar, .acp-sidebar,
-  .acp-form-footer, footer,
+  .acp-float-btn, .acp-form-footer, footer,
   .btn, button, .modal-backdrop { display: none !important; }
 
   body, #page-7 {
@@ -1431,7 +1398,4 @@ option { background: #1a2e52; color: white; }
 @media (max-width: 900px) {
   .sophie-layout      { grid-template-columns: 1fr; }
   .sophie-wrap        { padding: 28px 20px 48px; }
-  .acp-page-layout    { grid-template-columns: 1fr; }
-  .acp-sidebar        { position: static; height: auto; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
-  .acp-main           { padding: 28px 20px 48px; }
 }
