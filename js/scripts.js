@@ -6,7 +6,7 @@
 /* ── PAGE NAVIGATION ────────────────────────────────── */
 
 const visited = new Set([1]);
-const TOTAL_PAGES = 6;
+const TOTAL_PAGES = 7;
 
 function updateProgressBar(num) {
   const pct = Math.round(((num - 1) / (TOTAL_PAGES - 1)) * 100);
@@ -426,6 +426,56 @@ function unlockPillarsContinue() {
 }
 
 
+/* ── ACP VALIDATION ──────────────────────────────────── */
+
+function initAcpValidation() {
+  // Text inputs / textareas
+  document.querySelectorAll('.acp-validate').forEach(el => {
+    el.addEventListener('input', () => validateAcpField(el));
+    el.addEventListener('blur',  () => validateAcpField(el));
+  });
+  // Selects
+  document.querySelectorAll('.acp-validate-select').forEach(el => {
+    el.addEventListener('change', () => validateAcpSelect(el));
+  });
+  // Pre-check known confirmed items
+  const dnr  = document.getElementById('chk-dnr');
+  const meds = document.getElementById('chk-meds');
+  if (dnr)  { dnr.checked  = true; }
+  if (meds) { meds.checked = true; }
+}
+
+function validateAcpField(el) {
+  const raw    = el.value.trim().toLowerCase();
+  const answer = (el.dataset.answer || '').toLowerCase();
+  const mode   = el.dataset.match || 'contains';
+  if (!raw) { el.classList.remove('acp-correct', 'acp-incorrect'); return; }
+  let correct = false;
+  if (mode === 'contains') {
+    correct = raw.includes(answer);
+  } else if (mode === 'contains-any') {
+    correct = answer.split('|').some(a => raw.includes(a.trim()));
+  }
+  el.classList.toggle('acp-correct',   correct);
+  el.classList.toggle('acp-incorrect', !correct);
+}
+
+function validateAcpSelect(el) {
+  const val    = el.value.toLowerCase();
+  const answer = (el.dataset.answer || '').toLowerCase();
+  if (!val) { el.classList.remove('acp-correct', 'acp-incorrect'); return; }
+  el.classList.toggle('acp-correct',   val === answer);
+  el.classList.toggle('acp-incorrect', val !== answer);
+}
+
+
+/* ── PRINT ACP ───────────────────────────────────────── */
+
+function printAcp() {
+  window.print();
+}
+
+
 /* ── ACP NOTES MODAL ─────────────────────────────────── */
 
 function openAcpModal() {
@@ -449,6 +499,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialise progress bar and shuffle choices on load
   updateProgressBar(1);
   renderChoicesPanel();
+  initAcpValidation();
 
   // Close modals on backdrop click
   document.querySelectorAll('.modal-backdrop').forEach(backdrop => {
