@@ -154,13 +154,6 @@ const HS_TOTAL = 6;
 const hsFound  = new Set();
 
 const hsData = {
-  1: {
-    eyebrow: 'High Risk',
-    eyebrowClass: 'tag-risk',
-    title: '💊 Medication Storage',
-    body: 'Multiple prescription bottles are visible on a low table within easy reach and without clear organisation. This raises immediate concerns around accidental overdose, confusion between medications, and missed doses. Unsecured medication is also a safeguarding concern if vulnerable visitors are present.',
-    action: '<strong>Action:</strong> Discuss with GP or pharmacist. Consider a dosette/blister pack system and review secure storage options.'
-  },
   2: {
     eyebrow: 'High Risk',
     eyebrowClass: 'tag-risk',
@@ -174,13 +167,6 @@ const hsData = {
     title: '📺 Electrical Safety',
     body: 'An older CRT television is present. Older electrical appliances may not meet modern safety standards and can present fire risks, particularly if they overheat or have worn wiring.',
     action: '<strong>Action:</strong> Check for a working smoke alarm. Consider requesting a home fire safety visit from the local fire service.'
-  },
-  4: {
-    eyebrow: 'Concern',
-    eyebrowClass: 'tag-concern',
-    title: '🌡️ Heating & Warmth',
-    body: 'A wall-mounted radiator is visible. Adequate heating is essential — older adults are at significantly greater risk of hypothermia. However, very high surface temperatures can also cause burns if contacted directly.',
-    action: '<strong>Action:</strong> Ensure the home is heated to at least 18°C. Explore eligibility for Warm Home Discount or Winter Fuel Payment.'
   },
   5: {
     eyebrow: 'Positive — monitor',
