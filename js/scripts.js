@@ -150,7 +150,7 @@ function closeVideoModal() {
 
 /* ── HOTSPOT ACTIVITY ───────────────────────────────── */
 
-const HS_TOTAL = 6;
+const HS_TOTAL = 4;
 const hsFound  = new Set();
 
 const hsData = {
