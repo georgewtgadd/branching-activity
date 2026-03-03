@@ -1284,7 +1284,9 @@ option { background: #1a2e52; color: white; }
 
 /* Scene image */
 .sophie-image-frame {
-  width: 100%; aspect-ratio: 3/4; border-radius: 16px;
+  width: 100%; aspect-ratio: 3/4;
+  max-height: 480px;
+  border-radius: 16px;
   overflow: hidden; background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.08);
   display: flex; align-items: center; justify-content: center;
@@ -1367,18 +1369,23 @@ option { background: #1a2e52; color: white; }
 
 /* Sophie responsive — must come AFTER base definitions */
 @media (max-width: 900px) {
-  .sophie-layout { grid-template-columns: 1fr; gap: 28px; }
-  .sophie-wrap   { padding: 32px 24px 48px; }
-  .sophie-heading { font-size: 1.7rem; }
+  .sophie-layout       { grid-template-columns: 1fr; gap: 24px; }
+  .sophie-wrap         { padding: 28px 24px 48px; }
+  .sophie-heading      { font-size: 1.7rem; }
+  .sophie-image-frame  { aspect-ratio: 16/9; max-height: 320px; }
+  .sophie-left         { display: contents; }
+  .sophie-right        { order: -1; }
 }
 @media (max-width: 640px) {
-  .sophie-wrap         { padding: 24px 16px 40px; }
+  .sophie-wrap         { padding: 20px 16px 36px; }
   .sophie-layout       { gap: 20px; }
-  .sophie-image-frame  { aspect-ratio: 16/9; }
+  .sophie-image-frame  { aspect-ratio: 16/9; max-height: 240px; }
   .sophie-heading      { font-size: 1.35rem; }
   .sophie-body         { font-size: 0.88rem; }
+  .sophie-quote        { margin: 18px 0; padding: 14px 16px 14px 26px; }
   .sophie-quote p      { font-size: 0.86rem; }
   .sophie-prompts li   { font-size: 0.82rem; }
+  .claire-card         { margin-top: 12px; }
 }
 
 
